@@ -1,0 +1,16 @@
+
+terraform/backend/.terraform
+terraform/backend/.terraform.lock.hcl
+terraform/backend/terraform.tfstate
+terraform/backend/terraform.tfstate.backup
+
+
+terraform/eks/.terraform
+terraform/eks/.terraform.lock.hcl
+
+
+terraform/network/.terraform
+terraform/network/.terraform.lock.hcl
+
+terraform/security/.terraform
+terraform/security/.terraform.lock.hcl
