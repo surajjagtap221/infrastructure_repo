@@ -1,16 +1,16 @@
 
-terraform/backend/.terraform
-terraform/backend/.terraform.lock.hcl
-terraform/backend/terraform.tfstate
-terraform/backend/terraform.tfstate.backup
+terraform_infra/backend/.terraform
+terraform_infra/backend/.terraform.lock.hcl
+terraform_infra/backend/terraform.tfstate
+terraform_infra/backend/terraform.tfstate.backup
 
 
-terraform/eks/.terraform
-terraform/eks/.terraform.lock.hcl
+terraform_infra/eks/.terraform
+terraform_infra/eks/.terraform.lock.hcl
 
 
-terraform/network/.terraform
-terraform/network/.terraform.lock.hcl
+terraform_infra/network/.terraform
+terraform_infra/network/.terraform.lock.hcl
 
-terraform/security/.terraform
-terraform/security/.terraform.lock.hcl
+terraform_infra/security/.terraform
+terraform_infra/security/.terraform.lock.hcl
