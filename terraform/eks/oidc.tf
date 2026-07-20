@@ -1,24 +1,25 @@
-data "tls_certificate" "eks_oidc" {
+data "tls_certificate" "eks_oidc_tls" {
   url = aws_eks_cluster.eks_cluster.identity[0].oidc[0].issuer
 }
 
-resource "aws_iam_openid_connect_provider" "eks" {
-  
-  client_id_list = [ 
+resource "aws_iam_openid_connect_provider" "eks_oidc" {
+
+  client_id_list = [
     "sts.amazonaws.com"
-   ]
+  ]
 
-   thumbprint_list = [ 
-    data.tls_certificate.eks_oidc.certificates[0].sha1_fingerprint
-    ]
+  thumbprint_list = [
+    data.tls_certificate.eks_oidc_tls.certificates[0].sha1_fingerprint
+  ]
 
-    url = aws_eks_cluster.eks_cluster.identity[0].oidc[0].issuer
+  url = aws_eks_cluster.eks_cluster.identity[0].oidc[0].issuer
 
-    tags = merge(
-        local.common_tags,
-        {
-            Name = "${var.project_name}-oicd-provider"
-        }
-    )
-    
+  tags = merge(
+    local.common_tags,
+    {
+      Name = "${var.project_name}-oidc-provider"
+    }
+  )
+
+  depends_on = [aws_eks_cluster.eks_cluster]
 }

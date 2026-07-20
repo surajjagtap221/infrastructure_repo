@@ -13,8 +13,9 @@ resource "aws_launch_template" "eks_node_template" {
       delete_on_termination = true
     }
   }
+  ebs_optimized = true
 
-  vpc_security_group_ids = [ local.security.eks_node_sg_id ]
+  vpc_security_group_ids = [local.security.eks_node_sg_id]
 
   monitoring {
     enabled = true
@@ -27,6 +28,9 @@ resource "aws_launch_template" "eks_node_template" {
     instance_metadata_tags      = "enabled"
   }
 
+  lifecycle {
+    create_before_destroy = true
+  }
   tag_specifications {
     resource_type = "instance"
 
