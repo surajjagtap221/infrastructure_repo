@@ -22,4 +22,4 @@ data "terraform_remote_state" "security" {
   }
 }
 
-data "aws_caller_identity" "devsecops_admin" {}
+data "aws_caller_identity" "current" {}

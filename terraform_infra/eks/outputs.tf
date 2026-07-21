@@ -1,9 +1,9 @@
 output "eks_cluster_name" {
   value = aws_eks_cluster.eks_cluster.name
 }
-#output "eks_cluster_id" {
-# value = aws_eks_cluster.eks_cluster.id
-#}
+output "eks_cluster_id" {
+ value = aws_eks_cluster.eks_cluster.id
+}
 output "eks_cluster_arn" {
   value = aws_eks_cluster.eks_cluster.arn
 }
@@ -29,6 +29,9 @@ output "eks_oidc_provider_arn" {
 output "eks_launch_template_id" {
   value = aws_launch_template.eks_node_template.id
 }
+output "eks_launch_template_name" {
+  value = aws_launch_template.eks_node_template.name
+}
 output "eks_launch_template_latest_version" {
   value = aws_launch_template.eks_node_template.latest_version
 }
@@ -50,4 +53,8 @@ output "eks_node_role_arn" {
 }
 output "eks_node_role_name" {
   value = aws_iam_role.eks_node_role.name
+}
+
+output "eks_cluster_security_group_id" {
+  value = aws_eks_cluster.eks_cluster.vpc_config[0].cluster_security_group_id
 }
