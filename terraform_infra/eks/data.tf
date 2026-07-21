@@ -21,3 +21,5 @@ data "terraform_remote_state" "security" {
     dynamodb_table = "terraform-state-lock"
   }
 }
+
+data "aws_caller_identity" "devsecops_admin" {}
